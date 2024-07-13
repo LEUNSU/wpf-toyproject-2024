@@ -6,7 +6,8 @@ WPF 개인프로젝트 리포지토리
 
 
 
-https://github.com/LEUNSU/basic-wpf-2024/assets/158007401/c12f2301-bc7e-4950-b0cd-78ac9873d50e
+https://github.com/user-attachments/assets/11b13351-30f5-4bb6-9ad6-339e46e58843
+
 
 
 
