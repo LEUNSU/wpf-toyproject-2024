@@ -14,11 +14,13 @@ WPF 개인프로젝트 리포지토리
         
 ## 특징
 
+- 공공데이터 API를 활용하여 json 데이터 추출
+
 ![JSON파일](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf010.png)
-    - 공공데이터 API를 활용하여 json 데이터 추출
+
+- Open API로 추출한 데이터를 DB에 저장 및 연동
 
 ![DB화면](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf009.png)
-    - Open API로 추출한 데이터를 DB에 저장 및 연동
 
 ## 프로그램 실행
 
@@ -53,5 +55,5 @@ WPF 개인프로젝트 리포지토리
         BrsLoc.Address = $"https://google.com/maps/place/{Ycord},{Xcord}";
     }
     ```
-    
+
 https://github.com/user-attachments/assets/11b13351-30f5-4bb6-9ad6-339e46e58843
