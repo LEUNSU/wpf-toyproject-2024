@@ -24,17 +24,18 @@ WPF 개인프로젝트 리포지토리
 
 ## 프로그램 실행
 
+- 조회버튼을 누르고 저장을 누르면 API에서 불러온 데이터가 DB에 저장
+
 ![전체조회](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf002.png)
 
-    - 조회버튼을 누르고 저장을 누르면 API에서 불러온 데이터가 DB에 저장
+- API에서 '구'이름을 나타내는 데이터 값만 추출
 
 ![구선택](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf003.png)
 
-    - API에서 '구'이름을 나타내는 데이터 값만 추출
+- API에서 '구'이름을 나타내는 특정 데이터 값은 있었지만 '동'이름만 나타내는 데이터 값은 없었기때문에, 전체 주소에서 특정 '구'나 '군'에 속하는 '동'이름을 추출
 
 ![동선택](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf004.png)
 
-    - API에서 '구'이름을 나타내는 특정 데이터 값은 있었지만 '동'이름만 나타내는 데이터 값은 없었기때문에, 전체 주소에서 특정 '구'나 '군'에 속하는 '동'이름을 추출
 
     ``` 
     SELECT DISTINCT TRIM(REPLACE((RIGHT(b.Sub_adres, CHARINDEX(' ', b.Sub_adres) + 1)), '구 ', '')) AS Dong
@@ -45,9 +46,10 @@ WPF 개인프로젝트 리포지토리
                                                     ) AS b
     ``` 
 
+- 원하는 장소 선택하여 클릭하면, 구글 지도와 연동되어 장소 및 길 찾기 가능
+
 ![구글지도](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf008.png)
 
-    - 원하는 장소 선택하여 클릭하면, 구글 지도와 연동되어 장소 및 길 찾기 가능
   
     ```
     public MapWindow(double Ycord, double Xcord) : this()
