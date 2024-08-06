@@ -1,36 +1,38 @@
 # wpf-toyproject-2024
 WPF 개인프로젝트 리포지토리
 
-**데이터포털 API 연동앱**  
+**데이터포털 API 연동 프로그램**  
 
 ![시작화면](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf001.png)
 
 ## 배경
-    - 지진이나 전쟁 등 재해 발생 시 효율적인 대피를 위한 대피장소 검색 
+    지진이나 전쟁 등 재해 발생 시 효율적인 대피를 위한 대피장소 검색 
 
 ## 기능 
     - 부산광역시 지진 발생 시 옥외대피장소를 특정 '구'이름과 '동'이름을 선택하여 원하는 정보를 이용
     - 선택한 장소를 구글 지도와 연동하여 장소 및 길 찾기 가능
         
 ## 특징
-- ![JSON파일](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf010.png)
-    - 공공데이터포털
 
-- ![DB화면](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf009.png)
-    - 두 개의 콤보박스를 연동시킴으로써, '구'를 선택한 후 '구' 내의 '동'을 선택할 수 있음 (DB 사용)
-    - API에서 제공하는 경도와 위도 값을 사용해 구글 지도와 연동하여, 선택한 주소 위치의 구글 지도가 나타남 
+![JSON파일](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf010.png)
+    - 공공데이터 API를 활용하여 json 데이터 추출
+
+![DB화면](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf009.png)
+    - Open API로 추출한 데이터를 DB에 저장 및 연동
+
+## 프로그램 실행
 
 ![전체조회](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf002.png)
 
-- 조회버튼을 누르고 저장을 누르면 API에서 불러온 데이터가 DB에 저장
+    - 조회버튼을 누르고 저장을 누르면 API에서 불러온 데이터가 DB에 저장
 
 ![구선택](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf003.png)
 
-- API에서 '구'이름을 나타내는 데이터 값만 추출
+    - API에서 '구'이름을 나타내는 데이터 값만 추출
 
 ![동선택](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf004.png)
 
-- API에서 '구'이름을 나타내는 특정 데이터 값은 있었지만 '동'이름만 나타내는 데이터 값은 없었기때문에, 전체 주소에서 특정 '구'나 '군'에 속하는 '동'이름을 추출
+    - API에서 '구'이름을 나타내는 특정 데이터 값은 있었지만 '동'이름만 나타내는 데이터 값은 없었기때문에, 전체 주소에서 특정 '구'나 '군'에 속하는 '동'이름을 추출
 
     ``` 
     SELECT DISTINCT TRIM(REPLACE((RIGHT(b.Sub_adres, CHARINDEX(' ', b.Sub_adres) + 1)), '구 ', '')) AS Dong
@@ -43,7 +45,7 @@ WPF 개인프로젝트 리포지토리
 
 ![구글지도](https://raw.githubusercontent.com/LEUNSU/wpf-toyproject-2024/main/images/wpf008.png)
 
-- 원하는 장소 선택하여 클릭하면, 구글 지도와 연동되어 장소 및 길 찾기 가능
+    - 원하는 장소 선택하여 클릭하면, 구글 지도와 연동되어 장소 및 길 찾기 가능
   
     ```
     public MapWindow(double Ycord, double Xcord) : this()
@@ -51,5 +53,5 @@ WPF 개인프로젝트 리포지토리
         BrsLoc.Address = $"https://google.com/maps/place/{Ycord},{Xcord}";
     }
     ```
-
-![작동영상](https://github.com/user-attachments/assets/11b13351-30f5-4bb6-9ad6-339e46e58843)
+    
+https://github.com/user-attachments/assets/11b13351-30f5-4bb6-9ad6-339e46e58843
